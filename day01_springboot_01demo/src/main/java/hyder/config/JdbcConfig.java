@@ -1,6 +1,7 @@
 package hyder.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +15,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 //@PropertySource("classpath:jdbc.properties")
-@EnableConfigurationProperties(JdbcProperties.class)
+//@EnableConfigurationProperties(JdbcProperties.class)
 public class JdbcConfig {
 //	@Value("${jdbc.url}")
 //	String url;
@@ -25,13 +26,19 @@ public class JdbcConfig {
 //	@Value("${jdbc.password}")
 //	String password;
 
+//	@Bean
+//	public DataSource dataSource(JdbcProperties prop){
+//		DruidDataSource dataSource = new DruidDataSource();
+//		dataSource.setDriverClassName(prop.driverClassName);
+//		dataSource.setUrl(prop.url);
+//		dataSource.setName(prop.username);
+//		dataSource.setPassword(prop.password);
+//		return dataSource;
+//	}
+
 	@Bean
-	public DataSource dataSource(JdbcProperties prop){
-		DruidDataSource dataSource = new DruidDataSource();
-		dataSource.setDriverClassName(prop.driverClassName);
-		dataSource.setUrl(prop.url);
-		dataSource.setName(prop.username);
-		dataSource.setPassword(prop.password);
-		return dataSource;
+	@ConfigurationProperties(prefix = "jdbc")
+	public DataSource dataSource(){
+		return new DruidDataSource();
 	}
 }

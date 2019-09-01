@@ -1,13 +1,11 @@
 package hyder.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
 import javax.sql.DataSource;
-import java.sql.Driver;
 
 /**
  * @author: 杨欢
@@ -15,24 +13,25 @@ import java.sql.Driver;
  * @description:
  */
 @Configuration
-@PropertySource("classpath:jdbc.properties")
+//@PropertySource("classpath:jdbc.properties")
+@EnableConfigurationProperties(JdbcProperties.class)
 public class JdbcConfig {
-	@Value("${jdbc.url}")
-	String url;
-	@Value("${jdbc.driverClassName}")
-	String driverClassName;
-	@Value("${jdbc.username}")
-	String username;
-	@Value("${jdbc.password}")
-	String password;
+//	@Value("${jdbc.url}")
+//	String url;
+//	@Value("${jdbc.driverClassName}")
+//	String driverClassName;
+//	@Value("${jdbc.username}")
+//	String username;
+//	@Value("${jdbc.password}")
+//	String password;
 
 	@Bean
-	public DataSource dataSource(){
+	public DataSource dataSource(JdbcProperties prop){
 		DruidDataSource dataSource = new DruidDataSource();
-		dataSource.setDriverClassName(this.driverClassName);
-		dataSource.setUrl(this.url);
-		dataSource.setName(this.username);
-		dataSource.setPassword(this.password);
+		dataSource.setDriverClassName(prop.driverClassName);
+		dataSource.setUrl(prop.url);
+		dataSource.setName(prop.username);
+		dataSource.setPassword(prop.password);
 		return dataSource;
 	}
 }

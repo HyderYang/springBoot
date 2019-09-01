@@ -26,8 +26,8 @@ spring:
     password: secret
 
 mybatis:
-  configuration:
-    map-underscore-to-camel-case: true
+#  configuration:
+#    map-underscore-to-camel-case: true
   type-aliases-package: hyder.pojo
 
 #  mapper-locations: mapper/*.xml

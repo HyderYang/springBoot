@@ -1,11 +1,11 @@
 package hyder;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-@MapperScan("hyder.dao")
+@MapperScan(basePackages = "hyder.dao")
 public class App {
 
 	public static void main(String[] args) {

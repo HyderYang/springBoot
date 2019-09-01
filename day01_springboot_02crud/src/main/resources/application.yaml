@@ -17,3 +17,11 @@ logging:
       #值: 日志级别
     hyder: debug
 #    org.springframework: debug
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:33060/ssm
+    username: homestead
+    password: secret
+

@@ -1,0 +1,5 @@
+jdbc:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:33060/ssm
+    username: homestead
+    password: secret

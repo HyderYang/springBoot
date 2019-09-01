@@ -1,0 +1,19 @@
+#jdbc:
+#  driverClassName: com.mysql.jdbc.Driver
+#  url: jdbc:mysql://localhost:33060/ssm?useUnicode=true&characterEncoding=utf8
+#  username: homestead
+#  password: secret
+
+server:
+  port: 8090
+  servlet:
+    path: /
+
+# 日志级别
+logging:
+  level:
+    # 键值对形式
+      #键: 包名
+      #值: 日志级别
+    hyder: debug
+#    org.springframework: debug
